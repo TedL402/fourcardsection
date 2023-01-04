@@ -1,0 +1,175 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+:root{
+    --clr-primary-Red: hsl(0, 78%, 62%);
+    --clr-primary-Cyan: hsl(180, 62%, 55%);
+    --clr-primary-Orange: hsl(34, 97%, 64%);
+    --clr-primary-Blue: hsl(212, 86%, 64%);
+    --clr-neutral-VeryDarkBlue: hsl(234, 12%, 34%);
+    --clr-neutral-GrayishBlue: hsl(229, 6%, 66%);
+    --clr-neutral-VeryLightGray: hsl(0, 0%, 98%);
+    --clr-fontsize-Fontsize: 15px;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+ /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    display: grid;
+    place-content: center;
+    font-size: var(--clr-fontsize-Fontsize);
+    margin:2rem;
+    color:var(--clr-neutral-GrayishBlue);
+    min-height: 100%;
+  }
+
+  h3{
+    font-weight: 200;
+    font-size: 1.4rem;
+    margin-bottom: .75rem;
+  }
+  h3 > span{
+    color:var(--clr-neutral-VeryDarkBlue);
+    font-weight:400;
+    display:block;
+  }
+  .heading{
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+.main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+  .block{
+    max-width:312px;
+    height:220px;
+    padding:1rem;
+    display:grid;
+    margin:1.5rem 0;
+    border-radius: .5rem;
+    box-shadow: 0 10px 20px;
+    position:relative;
+    overflow: hidden;
+  }
+  .block > h4{
+    color:var(--clr-neutral-VeryDarkBlue);
+    font-size:1rem;
+  }
+  .block > img{
+    place-self: end;
+  }
+
+  .col::after{
+    content:'';
+    position:absolute;
+    height:3px;
+    width:100%;
+    left:0;
+  }
+  .col-red::after{
+    background-color: var(--clr-primary-Red);
+  }
+
+  .col-cyan::after{
+    background-color: var(--clr-primary-Cyan);
+  }
+  .col-blue:after{
+    background-color: var(--clr-primary-Blue);
+  }
+  .col-orange::after{
+    background-color: var(--clr-primary-Orange);
+  }
+
+  @media(min-width:1000px){
+    .heading{
+        max-width:55ch;
+        place-self: center;
+    }
+
+    .heading > h3{
+        font-size:2.2rem;
+    }
+    .block{
+        max-width:350px;
+        max-height:252px;
+    }
+    body{
+        transform: translateY(-10%);
+    }
+    .main{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap:2rem;
+    }
+    .block{
+        margin:0;
+    }
+    .col-blue{
+        grid-column:1/2;
+        grid-row:1/-1;
+    }
+    .col-cyan{
+        grid-column:3/4;
+        grid-row:1/-1;
+    }
+    
+    .col-red{
+        grid-column: 2/3;
+        grid-row:1/2;
+    }
+    .col-orange{
+        grid-column: 2/3;
+        grid-row:2/3;
+    }
+  }
